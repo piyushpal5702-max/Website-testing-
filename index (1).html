@@ -1,0 +1,1616 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Myraa ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  
+/* CINEMATIC INTRO SCREEN */
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+
+  background:
+    linear-gradient(rgba(35,5,15,.55), rgba(20,3,10,.85)),
+    url("background.jpg") center/cover;
+
+  transition: opacity 1.2s ease, visibility 1.2s;
+}
+
+.intro-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-heart {
+  font-size: 45px;
+  color: #e8b8bd;
+  animation: heartGlow 2s infinite alternate;
+  margin-bottom: 25px;
+}
+
+@keyframes heartGlow {
+  from {
+    transform: scale(1);
+    text-shadow: 0 0 10px #d77b91;
+  }
+  to {
+    transform: scale(1.15);
+    text-shadow: 0 0 35px #ff9eb5;
+  }
+}
+
+.intro-screen h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 10vw, 85px);
+  color: #fff0e8;
+}
+
+.intro-screen h1 span {
+  color: #e8cda5;
+  font-style: italic;
+}
+
+.intro-screen p {
+  margin-top: 20px;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.intro-btn {
+  margin-top: 45px;
+  padding: 16px 28px;
+  border: 1px solid #e8cda5;
+  background: rgba(255,255,255,.08);
+  color: #fff0e8;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  backdrop-filter: blur(10px);
+}
+
+.intro-btn:hover {
+  background: #e8cda5;
+  color: #260d19;
+}
+
+:root {
+  --gold: #e8cda5;
+  --white: #fffaf5;
+  --muted: #d5c8c0;
+  --glass: rgba(255,255,255,.075);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #080d1b;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(rgba(5,9,23,.53), rgba(5,9,23,.82)),
+    url("background.jpg") center/cover no-repeat;
+  transform: scale(1.03);
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 35%,
+    transparent 0%,
+    rgba(4,7,20,.45) 100%
+  );
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  color: rgba(245,190,190,.65);
+  pointer-events: none;
+  z-index: 5;
+  animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+  to {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 650px);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 50px;
+  background: rgba(10,15,30,.5);
+  backdrop-filter: blur(18px);
+  z-index: 20;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px 13px;
+  border-radius: 30px;
+  transition: .3s;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,.12);
+  color: white;
+}
+
+nav a::after {
+  content: " ♡";
+  color: var(--gold);
+  opacity: 0;
+  transition: .3s;
+}
+
+nav a:hover::after {
+  opacity: 1;
+}
+
+/* GENERAL */
+
+section {
+  min-height: 80vh;
+  padding: 110px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(55px, 12vw, 105px);
+  line-height: .95;
+}
+
+h2 {
+  font-size: clamp(42px, 8vw, 66px);
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.gold {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,.13);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+}
+
+/* HERO */
+
+#home {
+  min-height: 100svh;
+  position: relative;
+}
+
+.hero-subtitle {
+  margin-top: 22px;
+  letter-spacing: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.hero-note {
+  margin-top: 38px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 30px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: .35; }
+}
+
+/* LETTER */
+
+.letter-wrap {
+  width: min(100%, 560px);
+  margin-top: 40px;
+}
+
+.envelope {
+  position: relative;
+  width: min(100%, 340px);
+  height: 205px;
+  margin: auto;
+  background: #d9c1a5;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 15px 55px rgba(0,0,0,.35);
+  perspective: 800px;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #c9ad91;
+  clip-path: polygon(0 0,50% 60%,100% 0);
+  transform-origin: top;
+  transition: transform .8s;
+  z-index: 3;
+}
+
+.envelope.open::before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope::after {
+  content: "♡";
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 38px;
+  color: #805b59;
+  z-index: 4;
+  transition: opacity .3s;
+}
+
+.envelope.open::after {
+  opacity: 0;
+}
+
+.letter {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 8px;
+  height: 180px;
+  overflow: hidden;
+  padding: 20px;
+  background: #fff8ed;
+  color: #493a36;
+  border-radius: 4px;
+  transition: transform 1s, height 1s;
+  z-index: 2;
+}
+
+.envelope.open .letter {
+  transform: translateY(-135px);
+  height: 380px;
+  overflow-y: auto;
+}
+
+.letter h3 {
+  font-size: 28px;
+  color: #775653;
+  margin-bottom: 14px;
+}
+
+.letter p {
+  color: #594c47;
+  font-size: 13px;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.open-hint {
+  margin-top: 25px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* GALLERY */
+
+.gallery {
+  width: min(100%, 900px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 45px;
+}
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 13px;
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.photo img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  transition: transform .7s, filter .7s;
+}
+
+.photo:hover img {
+  transform: scale(1.06);
+  filter: brightness(.8);
+}
+
+.photo p {
+  padding: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+}
+
+/* MUSIC */
+
+.music-card {
+  width: min(100%, 390px);
+  padding: 30px;
+  margin-top: 35px;
+}
+
+.music-icon {
+  width: 125px;
+  height: 125px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, #b99a83, #4c4050);
+  font-size: 43px;
+  box-shadow: 0 0 40px rgba(232,205,165,.2);
+}
+
+.music-card h3 {
+  font-size: 29px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+button {
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.1);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .3s;
+  font-family: inherit;
+}
+
+button:hover {
+  background: var(--gold);
+  color: #171321;
+}
+
+.track-name {
+  font-size: 12px;
+  margin-top: 18px;
+}
+
+/* VIDEO */
+
+.video-card {
+  width: min(100%, 700px);
+  margin-top: 40px;
+  padding: 12px;
+}
+
+video {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+footer p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+}
+
+/* SCROLL REVEAL + BLUR */
+
+.reveal {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(35px);
+  transition:
+    opacity 1s ease,
+    filter 1s ease,
+    transform 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media(min-width:650px) {
+  .gallery {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .photo img {
+    height: 280px;
+  }
+}
+
+@media(max-width:420px) {
+  nav {
+    gap: 0;
+    padding: 8px 5px;
+  }
+
+  nav a {
+    padding: 9px 9px;
+    font-size: 9px;
+  }
+}
+  
+/* MYRAA GAME DESIGN */
+#myraa-game {
+  padding: 75px 18px;
+  text-align: center;
+  background: linear-gradient(135deg, #19070d, #3b101e, #16070c);
+  color: #f8e9df;
+}
+
+.game-card {
+  max-width: 520px;
+  margin: auto;
+  padding: 30px 22px;
+  border: 1px solid #a77b64;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.045);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+}
+
+.game-label {
+  color: #d6ad91;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+.game-card h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+}
+
+#game-question {
+  font-family: Georgia, serif;
+  font-size: 21px;
+  margin: 28px 0;
+}
+
+.game-progress {
+  height: 5px;
+  background: #60404a;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+#game-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #d9b18e;
+  transition: width 0.3s;
+}
+
+#game-count {
+  color: #d6ad91;
+  font-size: 13px;
+}
+
+.game-option {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #a77b64;
+  border-radius: 12px;
+  background: transparent;
+  color: #f8e9df;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.game-option:hover {
+  background: #653043;
+}
+
+.game-option:disabled {
+  opacity: 0.85;
+  cursor: default;
+}
+
+.game-option.selected {
+  background: #653043;
+  border-color: #e4c3a3;
+}
+
+#game-next,
+#game-result button {
+  margin-top: 22px;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #d9b18e;
+  color: #281017;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#game-next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#game-feedback {
+  min-height: 24px;
+  color: #e5c6a8;
+}
+
+#game-result,
+#birthday-surprise {
+  margin-top: 25px;
+  line-height: 1.8;
+}
+
+/* ===== MYRAA GAME POLISH ===== */
+
+#game-play,
+#game-result,
+#birthday-surprise {
+  animation: gameFadeIn 0.7s ease both;
+}
+
+@keyframes gameFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-option {
+  transition: all 0.3s ease !important;
+}
+
+.game-option.correct-answer {
+  background: linear-gradient(135deg, #d4af70, #f3dfad) !important;
+  color: #32131f !important;
+  border-color: #f5dca5 !important;
+  box-shadow: 0 0 18px rgba(212,175,112,0.5);
+}
+
+.game-option.wrong-answer {
+  animation: gentleShake 0.35s ease;
+  opacity: 0.65;
+}
+
+@keyframes gentleShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+#game-feedback {
+  transition: all 0.3s ease;
+}
+
+#game-score {
+  font-size: 28px;
+  color: #d4af70;
+  font-weight: bold;
+  text-align: center;
+}
+
+#game-result {
+  text-align: center;
+}
+
+#birthday-surprise {
+  text-align: center;
+  padding: 20px;
+}
+
+#birthday-surprise h2 {
+  color: #d4af70;
+}
+
+.game-heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: heartFloat 4s ease-in forwards;
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  100% {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+#game-result button,
+#birthday-surprise button {
+  transition: all 0.3s ease;
+}
+
+#game-result button:hover,
+#birthday-surprise button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 20px rgba(212,175,112,0.35);
+}
+
+/* ===== SWIPEABLE PHOTO DECK ===== */
+
+.photo-deck {
+  width: min(100%, 430px);
+  margin: 40px auto 0;
+}
+
+.deck-stage {
+  width: 100%;
+  height: 490px;
+  position: relative;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.deck-cards {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.deck-card {
+  position: absolute;
+  inset: 0;
+  padding: 12px;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #4b2936, #21121d);
+  border: 1px solid rgba(232,205,165,.65);
+  box-shadow: 0 15px 40px rgba(0,0,0,.4);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition:
+    transform .4s ease,
+    opacity .4s ease;
+  overflow: hidden;
+}
+
+.deck-card img {
+  width: 100%;
+  height: calc(100% - 43px);
+  flex: 1;
+  min-height: 0;
+  object-fit: contain;
+  display: block;
+  border-radius: 9px;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.deck-card p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--gold);
+  line-height: 1.3;
+  min-height: 22px;
+}
+
+.deck-card.fly-left {
+  transform: translateX(-140%) rotate(-18deg) !important;
+  opacity: 0;
+}
+
+.deck-card.fly-right {
+  transform: translateX(140%) rotate(18deg) !important;
+  opacity: 0;
+}
+
+.deck-counter {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-top: 28px;
+}
+
+.deck-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 18px;
+}
+
+.deck-controls span {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.deck-controls button {
+  width: 43px;
+  height: 43px;
+  padding: 0;
+  border: 1px solid var(--gold);
+  background: rgba(255,255,255,.06);
+  color: var(--gold);
+  font-size: 22px;
+  border-radius: 50%;
+}
+
+.deck-controls button:active {
+  transform: scale(.9);
+}
+
+@media(max-width: 480px) {
+  .deck-stage {
+    height: 430px;
+  }
+}
+
+</style>
+</head>
+
+<body> 
+  
+<!-- CINEMATIC WELCOME SCREEN -->
+
+<div class="intro-screen" id="introScreen">
+
+  <div class="intro-heart">♡</div>
+
+  <div class="eyebrow">
+    A LITTLE UNIVERSE MADE FOR YOU
+  </div>
+
+  <h1>
+    Happy Birthday,<br>
+    <span>Myraa.</span>
+  </h1>
+
+  <p>
+    TO MY FAVOURITE PERSON, KRITIKA
+  </p>
+
+  <button class="intro-btn" onclick="enterWebsite()">
+    OPEN YOUR LITTLE WORLD ♡
+  </button>
+
+</div>
+  
+
+<div class="background"></div>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#letter">Letter</a>
+  <a href="#memories">Memories</a>
+  <a href="#music">Music</a>
+</nav>
+
+<!-- HOME -->
+
+<section id="home">
+  <div class="reveal">
+    <div class="eyebrow">A little universe made for you</div>
+
+    <h1>Happy Birthday,<br>
+      <span class="gold">Myraa.</span>
+    </h1>
+
+    <p class="hero-subtitle">For Kritika, with all my heart</p>
+
+    <div class="hero-note">
+      "Some people make the whole universe feel brighter."
+    </div>
+  </div>
+
+  <div class="scroll">SCROLL TO EXPLORE ↓</div>
+</section>
+
+<!-- LETTER -->
+
+<section id="letter">
+  <div class="reveal">
+    <div class="eyebrow">A few words from me</div>
+    <h2>A letter for <span class="gold">you.</span></h2>
+    <p>Something I wanted you to read today.</p>
+  </div>
+
+  <div class="letter-wrap reveal">
+
+    <div class="envelope" id="envelope"
+         onclick="openLetter()">
+
+      <div class="letter">
+        <h3>Dear Myraa, ♡</h3>
+
+        <!-- EDIT YOUR LETTER BELOW -->
+
+        <p>
+          Happy Birthday, Kritika.
+          <br><br>
+
+          I don't know where to begin, but I do know
+          that you deserve all the happiness in this
+          universe.
+          <br><br>
+
+          Thank you for being a beautiful part of
+          my life, for the memories, the little
+          moments and all the laughter.
+          <br><br>
+
+          I hope this new chapter brings you
+          endless smiles, beautiful surprises and
+          everything your heart wishes for.
+          <br><br>
+
+          Keep being the wonderful person you are.
+          Never forget how special you are.
+          <br><br>
+
+          With lots of love,
+          <br>
+          Yours ♡
+
+        </p>
+
+        <!-- END OF EDITABLE LETTER -->
+
+      </div>
+    </div>
+
+    <div class="open-hint" id="letterHint">
+      TAP THE ENVELOPE TO OPEN ♡
+    </div>
+  </div>
+</section>
+
+<!-- MEMORIES -->
+
+<section id="memories">
+
+  <div class="reveal">
+    <div class="eyebrow">Little moments, forever memories</div>
+    <h2>Our little <span class="gold">world.</span></h2>
+    <p>Every picture has a story of its own.</p>
+  </div>
+
+  <div class="photo-deck reveal">
+
+    <div class="deck-stage" id="deckStage">
+      <div class="deck-cards" id="deckCards"></div>
+    </div>
+
+    <div class="deck-counter" id="deckCounter">
+      01 / 06
+    </div>
+
+    <div class="deck-controls">
+      <button type="button" onclick="deckPrev()">←</button>
+      <span>SWIPE TO EXPLORE ♡</span>
+      <button type="button" onclick="deckNext()">→</button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<section id="music">
+  <div class="reveal">
+    <div class="eyebrow">A soundtrack of us</div>
+    <h2>Our <span class="gold">song.</span></h2>
+    <p>Some feelings sound better in music.</p>
+  </div>
+
+  <div class="music-card glass reveal">
+
+    <div class="music-icon" id="musicIcon">♫</div>
+
+    <h3>Our little melody</h3>
+    <p>Every note holds a memory.</p>
+
+    <div class="controls">
+      <button onclick="toggleMusic()" id="playBtn">
+        ▶ Play song
+      </button>
+    </div>
+
+    <div class="track-name" id="trackName">
+      your song ♡
+    </div>
+
+    
+<audio id="audio" controls preload="auto">
+  <source src="./out%20song.mp3" type="audio/mpeg">
+</audio>
+    
+  </div>
+</section>
+
+<!-- VIDEO -->
+
+<section id="film">
+  <div class="reveal">
+    <div class="eyebrow">A little piece of forever</div>
+    <h2>Our <span class="gold">story.</span></h2>
+    <p>A little film, made out of memories.</p>
+  </div>
+
+  <div class="video-card glass reveal">
+    <video controls playsinline preload="metadata">
+      <source src="our edit.mp4" type="video/mp4">
+      Your browser does not support this video.
+    </video>
+  </div>
+</section>
+
+<footer>
+  <p>Made with love, for Myraa. <span class="gold">♡</span></p>
+  <p style="font-family:'DM Sans';font-size:10px;
+    letter-spacing:3px;margin-top:15px;">
+    A LITTLE UNIVERSE OF OUR OWN
+  </p>
+</footer>
+
+<script>
+  
+
+// ENVELOPE
+
+function openLetter() {
+  const envelope = document.getElementById("envelope");
+  envelope.classList.toggle("open");
+
+  document.getElementById("letterHint").textContent =
+    envelope.classList.contains("open")
+    ? "A LITTLE LETTER, JUST FOR YOU ♡"
+    : "TAP THE ENVELOPE TO OPEN ♡";
+}
+
+// MUSIC PLAYER
+
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("playBtn");
+const musicIcon = document.getElementById("musicIcon");
+
+
+
+async function toggleMusic() {
+  const audio = document.getElementById("audio");
+  const button = document.getElementById("playBtn");
+
+  if (!audio || !button) return;
+
+  if (!audio.paused) {
+    audio.pause();
+    button.textContent = "▶ Play song";
+    return;
+  }
+
+  try {
+    await audio.play();
+    button.textContent = "❚❚ Pause song";
+  } catch (error) {
+    console.error("Music error:", error);
+    button.textContent = "▶ Play song";
+    alert("Music error: " + error.name + " - " + error.message);
+  }
+}
+
+
+// SCROLL BLUR REVEAL
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+// FLOATING HEARTS
+
+function createHeart() {
+
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = Math.random() > 0.5 ? "♡" : "♥";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (12 + Math.random() * 18) + "px";
+
+  const duration = 7 + Math.random() * 7;
+  heart.style.animationDuration = duration + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, duration * 1000);
+}
+
+setInterval(createHeart, 1100);
+
+  
+// ENTER THE WEBSITE
+
+function enterWebsite() {
+  const intro = document.getElementById("introScreen");
+
+  intro.classList.add("hide");
+
+  setTimeout(() => {
+    intro.style.display = "none";
+  }, 1300);
+}
+
+  const gameQuestions = [
+  {
+    q: "What nickname does he call me the most?",
+    options: ["Myraa", "Goosebumps", "Baby", "Princess"],
+    correct: [0]
+  },
+  {
+    q: "Who usually starts the conversation first?",
+    options: ["Him", "Me", "Both equally", "Depends on the day"],
+    correct: [3]
+  },
+  {
+    q: "What's his favourite thing about me?",
+    options: ["My smile", "My voice", "My personality", "Everything"],
+    correct: [3]
+  },
+  {
+    q: "What was our first proper conversation about?",
+    options: [
+      "The trip with family",
+      "Harry Potter houses",
+      "Telling you about my exes",
+      "None of the above"
+    ],
+    correct: [0]
+  },
+  {
+    q: "Who fell for whom first?",
+    options: ["Him", "Me", "Both at the same time", "Still a mystery"],
+    correct: [0]
+  },
+  {
+    q: "Which moment together would he love to relive?",
+    options: [
+      "The first staircase",
+      "The ground-close conversation",
+      "Going out with you for the first time",
+      "The farewell day"
+    ],
+    correct: [1]
+  },
+  {
+    q: "What's one thing about us that you never want to change?",
+    options: [
+      "Our silly conversations",
+      "The way we care for each other",
+      "Our little memories",
+      "Everything about us"
+    ],
+    correct: [0, 1, 2, 3]
+  },
+  {
+    q: "If he could plan one perfect day with me, what would it include?",
+    options: [
+      "A long drive",
+      "A movie date",
+      "Just spending time together",
+      "A surprise adventure"
+    ],
+    correct: [0, 2]
+  },
+  {
+    q: "What's his favourite name for me?",
+    options: ["Kritika", "Myraa", "Goosebumps", "All of them"],
+    correct: [1]
+  }
+];
+
+let gameIndex = 0;
+let gameScore = 0;
+let gameAnswered = false;
+
+function loadGameQuestion() {
+  const question = gameQuestions[gameIndex];
+  gameAnswered = false;
+
+  document.getElementById("game-result").style.display = "none";
+  document.getElementById("birthday-surprise").style.display = "none";
+
+  document.getElementById("game-question").style.display = "block";
+  document.getElementById("game-options").style.display = "block";
+  document.getElementById("game-feedback").style.display = "block";
+  document.getElementById("game-next").style.display = "inline-block";
+  document.getElementById("game-count").style.display = "block";
+
+  document.getElementById("game-count").textContent =
+    `Question ${gameIndex + 1} of ${gameQuestions.length}`;
+
+  document.getElementById("game-progress-fill").style.width =
+    `${(gameIndex / gameQuestions.length) * 100}%`;
+
+  document.getElementById("game-question").textContent = question.q;
+  document.getElementById("game-feedback").textContent = "";
+
+  const optionsBox = document.getElementById("game-options");
+  optionsBox.innerHTML = "";
+
+  document.getElementById("game-next").disabled = true;
+
+  question.options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.className = "game-option";
+    button.textContent = option;
+    button.onclick = () => chooseGameAnswer(index, button);
+    optionsBox.appendChild(button);
+  });
+}
+
+function chooseGameAnswer(index, selectedButton) {
+  if (gameAnswered) return;
+  gameAnswered = true;
+
+  const question = gameQuestions[gameIndex];
+  const isCorrect = question.correct.includes(index);
+
+  if (isCorrect) {
+    gameScore++;
+    document.getElementById("game-feedback").textContent =
+      "That's right! You know us so well. ♡";
+  } else {
+    document.getElementById("game-feedback").textContent =
+      "Aww, nice try! ♡";
+  }
+
+  document.querySelectorAll(".game-option").forEach(button => {
+    button.disabled = true;
+  });
+
+  selectedButton.classList.add("selected");
+  document.getElementById("game-next").disabled = false;
+}
+
+function nextGameQuestion() {
+  myraaFinalCelebration();
+  if (!gameAnswered) return;
+  gameIndex++;
+
+  if (gameIndex < gameQuestions.length) {
+    loadGameQuestion();
+  } else {
+    document.getElementById("game-question").style.display = "none";
+    document.getElementById("game-options").style.display = "none";
+    document.getElementById("game-feedback").style.display = "none";
+    document.getElementById("game-next").style.display = "none";
+    document.getElementById("game-count").style.display = "none";
+
+    document.getElementById("game-progress-fill").style.width = "100%";
+
+    document.getElementById("game-result").style.display = "block";
+    document.getElementById("game-score").textContent =
+      `You got ${gameScore} out of ${gameQuestions.length} questions right!`;
+  }
+}
+
+function showBirthdaySurprise() {
+  myraaSurpriseReveal();
+  document.getElementById("game-result").style.display = "none";
+  document.getElementById("birthday-surprise").style.display = "block";
+}
+
+function startMyraaGame() {
+  gameIndex = 0;
+  gameScore = 0;
+  document.getElementById("game-welcome").style.display = "none";
+  document.getElementById("game-play").style.display = "block";
+  loadGameQuestion();
+}
+
+ 
+/* ===== MYRAA GAME POLISH JAVASCRIPT ===== */
+
+// Floating heart celebration
+function createGameHearts() {
+  const symbols = ["♡", "♥", "✧", "✨"];
+
+  for (let i = 0; i < 18; i++) {
+    const heart = document.createElement("div");
+
+    heart.className = "game-heart";
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    heart.style.color = "#d4af70";
+    heart.style.animationDelay = Math.random() * 2 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6500);
+  }
+}
+
+
+// Animated score counter
+function animateMyraaScore(finalScore) {
+  const scoreElement = document.getElementById("game-score");
+
+  let currentScore = 0;
+
+  const interval = setInterval(() => {
+    scoreElement.textContent = currentScore + " / 9";
+
+    if (currentScore >= finalScore) {
+      clearInterval(interval);
+
+      scoreElement.innerHTML =
+        finalScore + " / 9" +
+        "<br><span style='font-size:16px'>" +
+        "You've already won my heart. ♡" +
+        "</span>";
+    }
+
+    currentScore++;
+  }, 150);
+}
+
+
+// Personalised final celebration
+function myraaFinalCelebration() {
+  createGameHearts();
+  animateMyraaScore(gameScore);
+}
+
+
+// Secret surprise reveal
+function myraaSurpriseReveal() {
+  const surprise =
+    document.getElementById("birthday-surprise");
+
+  surprise.style.display = "block";
+  surprise.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  createGameHearts();
+}
+
+  
+/* ===== SWIPEABLE PHOTO DECK ===== */
+
+const deckPhotos = [
+  {
+    src: "photo1.jpg",
+    caption: "One of my favourite moments ♡"
+  },
+  {
+    src: "photo2.jpg",
+    caption: "Just us, being us."
+  },
+  {
+    src: "photo3.jpg",
+    caption: "A little moment to remember."
+  },
+  {
+    src: "photo4.jpg",
+    caption: "My favourite kind of chaos."
+  },
+  {
+    src: "photo5.jpg",
+    caption: "Another beautiful memory."
+  },
+  {
+    src: "photo6.jpg",
+    caption: "To many more memories ♡"
+  }
+];
+
+let deckIndex = 0;
+let deckBusy = false;
+let deckStartX = 0;
+
+const deckCards = document.getElementById("deckCards");
+const deckCounter = document.getElementById("deckCounter");
+const deckStage = document.getElementById("deckStage");
+
+
+// Create photo cards
+
+deckPhotos.forEach((photo) => {
+
+  const card = document.createElement("div");
+  card.className = "deck-card";
+
+  const img = document.createElement("img");
+  img.src = photo.src;
+  img.alt = "Photo memory";
+  img.draggable = false;
+
+  const caption = document.createElement("p");
+  caption.textContent = photo.caption;
+
+  card.appendChild(img);
+  card.appendChild(caption);
+
+  deckCards.appendChild(card);
+
+});
+
+
+// Display the card stack
+
+function deckRender() {
+
+  const cards = Array.from(deckCards.children);
+
+  cards.forEach((card, index) => {
+
+    const depth =
+      (index - deckIndex + deckPhotos.length)
+      % deckPhotos.length;
+
+    card.style.zIndex = deckPhotos.length - depth;
+
+    card.style.transform =
+      `translateY(${depth * 7}px)
+       scale(${1 - depth * 0.035})
+       rotate(${depth * 2}deg)`;
+
+    card.style.opacity = depth > 3 ? "0" : "1";
+
+    card.style.pointerEvents =
+      depth === 0 ? "auto" : "none";
+
+  });
+
+  deckCounter.textContent =
+    String(deckIndex + 1).padStart(2, "0")
+    + " / "
+    + String(deckPhotos.length).padStart(2, "0");
+
+}
+
+
+// Move the top card
+
+function deckMove(direction) {
+
+  if (deckBusy) return;
+
+  deckBusy = true;
+
+  const cards = Array.from(deckCards.children);
+  const topCard = cards[deckIndex];
+
+  topCard.classList.add(
+    direction === 1 ? "fly-left" : "fly-right"
+  );
+
+  setTimeout(() => {
+
+    deckIndex =
+      (deckIndex + direction + deckPhotos.length)
+      % deckPhotos.length;
+
+    topCard.classList.remove("fly-left", "fly-right");
+
+    deckRender();
+
+    deckBusy = false;
+
+  }, 400);
+
+}
+
+
+// Next and previous buttons
+
+function deckNext() {
+  deckMove(1);
+}
+
+function deckPrev() {
+  deckMove(-1);
+}
+
+
+// Swipe support
+
+deckStage.addEventListener("pointerdown", function(event) {
+
+  if (deckBusy) return;
+
+  deckStartX = event.clientX;
+
+});
+
+deckStage.addEventListener("pointerup", function(event) {
+
+  if (deckBusy) return;
+
+  const distance = event.clientX - deckStartX;
+
+  if (distance < -45) {
+    deckNext();
+  }
+
+  if (distance > 45) {
+    deckPrev();
+  }
+
+});
+
+
+// Initialise the deck
+
+deckRender();
+
+</script>
+
+<!-- MYRAA'S BIRTHDAY GAME -->
+
+<section id="myraa-game">
+  <div class="game-card">
+
+    <div id="game-welcome">
+      <p class="game-label">A LITTLE CHALLENGE FOR YOU ♡</p>
+      <h2>How Well Do You Know Us?</h2>
+      <p>Every little memory tells a story. Let's see how many you remember.</p>
+      <button onclick="startMyraaGame()">START GAME ♡</button>
+    </div>
+
+    <div id="game-play" style="display:none;">
+      <div class="game-progress">
+        <div id="game-progress-fill"></div>
+      </div>
+
+      <p id="game-count">Question 1 of 9</p>
+      <h3 id="game-question"></h3>
+      <div id="game-options"></div>
+      <p id="game-feedback"></p>
+
+      <button id="game-next" onclick="nextGameQuestion()" disabled>
+        NEXT ♡
+      </button>
+    </div>
+
+    <div id="game-result" style="display:none;">
+      <h2>You did it, Myraa! ♡</h2>
+      <p id="game-score"></p>
+      <p>Some memories are little treasures, and you're my favourite one.</p>
+      <button onclick="showBirthdaySurprise()">UNLOCK YOUR SURPRISE ♡</button>
+    </div>
+
+    <div id="birthday-surprise" style="display:none;">
+      <h2>A Little Something For You ♡</h2>
+      <p>Happy Birthday, Myraa. You make ordinary moments feel special. I hope your day is as wonderful as you are.</p>
+      <p>With love, always. ♡</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+</body>
+</html>
